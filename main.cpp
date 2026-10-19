@@ -2,9 +2,11 @@
 #include <cstdlib>
 #include <ctime>
 
-const int scoreAt0 = 72; // change this number
+using std::cout;
+using std::endl;
+const int scoreAt0 = 92; 
 
-// Project 2 — Your Name
+// Project 2 — Jaylen
 // CIS 5 Week 08
 // Do not edit the boilerplate. It randomly generates 30 elements into the array.
 // One main only. No vector. No extra functions. No files.
@@ -12,33 +14,67 @@ const int scoreAt0 = 72; // change this number
 int main() {
   const int N = 30;
   int scores[N];
-  const int scoreAt10 = 81; // change this number
+  const int scoreAt10 = 55; // change this number
 
   // Do not edit this boilerplate. It randomly generates 30 elements into the array.
   srand(static_cast<unsigned>(time(nullptr)));
 
-  const int scoreAt20 = 64; // change this number
+  const int scoreAt20 = 72; // changed this number
 
   for (int i = 0; i < N; ++i) {
     scores[i] = rand() % 100;
   }
 
   scores[0] = scoreAt0;
-  const int scoreAt27 = 41; // change this number
+  const int scoreAt27 = 81; // changed this number
   scores[10] = scoreAt10;
   scores[20] = scoreAt20;
   scores[27] = scoreAt27;
 
+  
+
   // TODO: print each index and scores[i]
+for (int i = 0; i < N; ++i) {
+  cout << "Student grade at index "<< "[" << i <<  "] " << scores[i] << endl;
+}
 
-  // TODO: one for loop. Count A, B, C, D, and failing.
-  // 90 and up is A. 80 to 89 is B. 70 to 79 is C. 60 to 69 is D.
-  // Below 60 is failing. A score of 60 is a D.
-  // Print A:, B:, C:, D:, and F:. The five totals add up to 30.
+  int aCount = 0;
+  int bCount = 0;
+  int cCount = 0;
+  int dCount = 0;
+  int fCount = 0;
+  for (int i = 0; i < N; i++) {
+    if (scores[i] >= 90){
+      ++aCount;    
+    }
+    else if (scores[i] >= 80){
+      ++bCount;    
+    }
+   else if (scores[i] >= 70){
+      ++cCount;    
+    }
+   else if (scores[i] >= 60){
+      ++dCount;    
+    }
+   else {
+     ++fCount;
+    }
+  }
 
-  // TODO: one while loop. If scores[i] is under 60, print:
-  // Student at index i needs to come to office hours.
-  // Put ++i in the loop or it never ends.
+  cout << "A students: " << aCount << endl;
+  cout << "B students: " << bCount << endl;
+  cout << "C students: " << cCount << endl;
+  cout << "D students: " << dCount << endl;
+  cout << "F students: " << fCount << endl;
+
+  int i = 0;
+while (i < N){
+  if (scores[i] < 60){
+    cout << "Student in index " << i << " come to office hours" << endl;
+  }
+
+  ++i;
+}
 
   return 0;
 }
